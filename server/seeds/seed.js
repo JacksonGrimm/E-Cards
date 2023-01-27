@@ -28,6 +28,9 @@ connection.once("open", async () => {
     await models.User.create({
       name: "User-1",
     });
+    const cardId = await models.Card.findOne({});
+    console.log(cardId);
+    await models.User.updateOne({}, { cards: cardId });
   } catch (error) {
     console.log(error);
   }
