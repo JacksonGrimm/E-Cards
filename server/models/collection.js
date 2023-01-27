@@ -14,7 +14,7 @@ const collectionSchema = new Schema({
   cards: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Cards",
+      ref: "cards",
     },
   ],
   createdAt: {

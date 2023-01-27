@@ -3,12 +3,12 @@ const { Schema, model } = require("mongoose");
 const tradesSchema = new Schema({
   club: {
     type: Schema.Types.ObjectId,
-    ref: "Clubs",
+    ref: "clubs",
   },
   cards: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Cards",
+      ref: "cards",
     },
   ],
   tradedAt: {

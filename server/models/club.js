@@ -8,13 +8,13 @@ const clubSchema = new Schema({
   members: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Users",
+      ref: "users",
     },
   ],
   cardCollections: [
     {
       type: Schema.Types.ObjectId,
-      ref: "CardCollections",
+      ref: "cardCollections",
     },
   ],
   createdAt: {

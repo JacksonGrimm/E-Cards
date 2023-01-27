@@ -6,11 +6,17 @@ try {
     type User {
       _id: ID
       name: String!
+      cards: [Card]
       profilePicture: String
       createdAt: String
     }
+    type Card {
+      _id: ID
+      name: String!
+    }
     type Query {
       users: [User]!
+      cards: [Card]
     }
   `;
   module.exports = typeDefs;

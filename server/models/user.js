@@ -9,13 +9,13 @@ const userSchema = new Schema({
   },
   email: {
     type: String,
-    required: true,
+    // required: true,
     match: /.+\@.+\..+/,
     unique: true,
   },
   password: {
     type: String,
-    required: true,
+    // required: true,
     minLength: 5,
   },
   profilePicture: {
@@ -24,13 +24,13 @@ const userSchema = new Schema({
   clubs: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Clubs",
+      ref: "clubs",
     },
   ],
   cards: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Cards",
+      ref: "cards",
     },
   ],
   trades: [tradesSchema],
@@ -40,16 +40,6 @@ const userSchema = new Schema({
     get: (timeStamp) => new Date(timeStamp).toDateString(),
   },
 });
-userSchema.pre("save", async function (next) {
-  if (this.isNew || this.isModified("password")) {
-    const saltRounds = 10;
-    this.password = await bcrypt.hash(this.password, saltRounds);
-  }
-  next();
-});
-userSchema.methods.isCorrectPassword = async function (password) {
-  return bcrypt.compare(password, this.password);
-};
 
 const User = model("user", userSchema);
 module.exports = { User };
