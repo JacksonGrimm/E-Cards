@@ -1,0 +1,26 @@
+{
+  "name": "e-cards",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server --ignore client",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JacksonGrimm/E-Cards.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JacksonGrimm/E-Cards/issues"
+  },
+  "homepage": "https://github.com/JacksonGrimm/E-Cards#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
