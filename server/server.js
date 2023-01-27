@@ -1,19 +1,17 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
+const { resolvers, typeDefs } = require("./schema");
 
 const db = require("./config/connection");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-let typeDefs = "";
-let resolvers = "";
-
-// const server = new ApolloServer({
-//   typeDefs,
-//   resolvers,
-// });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -39,4 +37,4 @@ const startApolloServer = async (typeDefs, resolvers) => {
   });
 };
 
-// startApolloServer(typeDefs, resolvers);
+startApolloServer(typeDefs, resolvers);

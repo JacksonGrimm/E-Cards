@@ -19,6 +19,10 @@ const CardSchema = new Schema({
     type: String,
     required: true,
   },
+  CardCollection: {
+    type: Schema.Types.ObjectId,
+    ref: "cardCollections",
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -26,5 +30,5 @@ const CardSchema = new Schema({
   },
 });
 
-const Card = model("card", CardSchema);
+const Card = model("cards", CardSchema);
 module.exports = { Card };

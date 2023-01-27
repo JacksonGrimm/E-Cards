@@ -1,20 +1,20 @@
 const { Schema, model } = require("mongoose");
 
-const clubSchema = new Schema({
+const collectionSchema = new Schema({
   name: {
     type: String,
     required: true,
+    trim: true,
   },
-  members: [
+  description: {
+    type: String,
+    trim: true,
+    maxLength: 350,
+  },
+  cards: [
     {
       type: Schema.Types.ObjectId,
-      ref: "users",
-    },
-  ],
-  cardCollections: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "cardCollections",
+      ref: "cards",
     },
   ],
   createdAt: {
@@ -24,5 +24,5 @@ const clubSchema = new Schema({
   },
 });
 
-const Club = model("club", clubSchema);
-module.exports = { Club };
+const CardCollection = model("CardCollection", collectionSchema);
+module.exports = { CardCollection };

@@ -1,10 +1,22 @@
 const { Schema, model } = require("mongoose");
 const { tradesSchema } = require("./trades");
+const bcrypt = require("bcrypt");
 
 const userSchema = new Schema({
   name: {
     type: String,
     required: true,
+  },
+  email: {
+    type: String,
+    // required: true,
+    match: /.+\@.+\..+/,
+    unique: true,
+  },
+  password: {
+    type: String,
+    // required: true,
+    minLength: 5,
   },
   profilePicture: {
     type: String,
@@ -12,13 +24,13 @@ const userSchema = new Schema({
   clubs: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Clubs",
+      ref: "clubs",
     },
   ],
   cards: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Cards",
+      ref: "cards",
     },
   ],
   trades: [tradesSchema],
