@@ -13,10 +13,21 @@ try {
     type Card {
       _id: ID
       name: String!
+      image: String
+      description: String
+      rarity: String
+      createdAt: String
+    }
+    type Club {
+      _id: ID
+      name: String!
+      members: [User]
+      createdAt: String
     }
     type Query {
       users: [User]!
-      cards: [Card]
+      cards: [Card]!
+      clubs: [Club]!
     }
   `;
   module.exports = typeDefs;

@@ -10,6 +10,22 @@ const resolvers = {
         console.log(error);
       }
     },
+    cards: async () => {
+      try {
+        const cardArray = await models.Card.find();
+        return cardArray;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    clubs: async () => {
+      try {
+        const clubsArray = await models.Club.find();
+        return clubsArray;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 };
 
