@@ -19,10 +19,6 @@ const CardSchema = new Schema({
     type: String,
     required: true,
   },
-  CardCollection: {
-    type: Schema.Types.ObjectId,
-    ref: "cardCollections",
-  },
   createdAt: {
     type: Date,
     default: Date.now,
