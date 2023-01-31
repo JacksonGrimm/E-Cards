@@ -26,6 +26,14 @@ const resolvers = {
         console.log(error);
       }
     },
+    cardCollections: async () => {
+      try {
+        const cardCollectionArr = await models.CardCollection.find();
+        return cardCollectionArr;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 };
 
