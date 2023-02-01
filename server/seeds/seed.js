@@ -30,6 +30,7 @@ connection.once("open", async () => {
     });
     const cardId = await models.Card.findOne({});
     await models.User.updateOne({}, { cards: cardId });
+    await models.CardCollection.updateOne({}, { cardId: cardId });
   } catch (error) {
     console.log(error);
   }

@@ -37,6 +37,29 @@ try {
       clubs: [Club]!
       cardCollections: [cardCollection]!
     }
+    type Mutation {
+      newUser(
+        name: String!
+        email: String!
+        password: String!
+        profilePicture: String!
+      )
+      editUser(
+        name: String!
+        email: String!
+        password: String!
+        profilePicture: String!
+      )
+      deleteUser(
+        _id: ID!
+        ): User
+      newCard(
+        name: String!
+        image: String!
+        description: String!
+        rarity: String
+      )
+    }
   `;
   module.exports = typeDefs;
 } catch (error) {
