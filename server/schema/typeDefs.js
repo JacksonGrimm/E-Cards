@@ -43,22 +43,20 @@ try {
         email: String!
         password: String!
         profilePicture: String!
-      )
+      ): User
       editUser(
         name: String!
         email: String!
         password: String!
         profilePicture: String!
-      )
-      deleteUser(
-        _id: ID!
-        ): User
+      ): User
+      deleteUser(_id: ID!): User
       newCard(
         name: String!
         image: String!
         description: String!
         rarity: String
-      )
+      ): Card
     }
   `;
   module.exports = typeDefs;
