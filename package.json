@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
-    "seed": "cd server && npm run seed"
+    "seed": "cd server && npm run seed",
+    "start:dev": "npm run seed && npm run start" 
 
   },
   "repository": {

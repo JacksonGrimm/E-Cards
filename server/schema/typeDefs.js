@@ -24,10 +24,40 @@ try {
       members: [User]
       createdAt: String
     }
+    type cardCollection {
+      _id: ID
+      name: String!
+      description: [User]
+      #cards
+      createdAt: String
+    }
     type Query {
       users: [User]!
       cards: [Card]!
       clubs: [Club]!
+      cardCollections: [cardCollection]!
+    }
+    type Mutation {
+      newUser(
+        name: String!
+        email: String!
+        password: String!
+        profilePicture: String
+      ): User
+      editUser(
+        _id: ID!
+        name: String
+        email: String
+        password: String
+        profilePicture: String
+      ): User
+      deleteUser(_id: ID!): User
+      newCard(
+        name: String!
+        image: String!
+        description: String!
+        rarity: String
+      ): Card
     }
   `;
   module.exports = typeDefs;

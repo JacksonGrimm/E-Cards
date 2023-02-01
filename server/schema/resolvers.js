@@ -26,7 +26,58 @@ const resolvers = {
         console.log(error);
       }
     },
+    cardCollections: async () => {
+      try {
+        const cardCollectionArr = await models.CardCollection.find();
+        return cardCollectionArr;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+  Mutation: {
+    newUser: async (_, { name, email, password }) => {
+      try {
+        const response = await models.User.create({
+          name,
+          email,
+          password,
+        });
+        console.log(response);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    editUser: async (_, { name, email, _id, password, profilePicture }) => {
+      try {
+        const response = await models.User.findByIdAndUpdate(
+          {
+            _id: _id,
+          },
+          {
+            name: name,
+            email: email,
+            password: password,
+            profilePicture: profilePicture,
+          }
+        );
+        console.log(response);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    deleteUser: async (_, { _id }, context) => {
+      try {
+        const response = await models.User.findOneAndDelete({
+          _id: _id,
+        });
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 };
-
 module.exports = resolvers;
