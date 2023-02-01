@@ -42,13 +42,14 @@ try {
         name: String!
         email: String!
         password: String!
-        profilePicture: String!
+        profilePicture: String
       ): User
       editUser(
-        name: String!
-        email: String!
-        password: String!
-        profilePicture: String!
+        _id: ID!
+        name: String
+        email: String
+        password: String
+        profilePicture: String
       ): User
       deleteUser(_id: ID!): User
       newCard(
